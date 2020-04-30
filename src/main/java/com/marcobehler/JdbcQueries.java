@@ -11,10 +11,10 @@ public class JdbcQueries {
                 .getConnection("jdbc:mysql://localhost/test?serverTimezone=UTC",
                         "myUsername", "myPassword")) {
 
-            List<User> users = new ArrayList<>();
-
             PreparedStatement selectStatement = conn.prepareStatement("select * from users");
             ResultSet rs = selectStatement.executeQuery();
+
+            List<User> users = new ArrayList<>();
 
             while (rs.next()) { // will traverse through all rows
                 Integer id = rs.getInt("id");
