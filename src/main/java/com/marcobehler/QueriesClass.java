@@ -35,12 +35,14 @@ public class QueriesClass {
             PreparedStatement statement = connection.prepareStatement("insert into users (first_name, last_name) values (?,?)");
             statement.setString(1, "John");
             statement.setString(2, "Rambo");
-            statement.executeUpdate();
+            int insertedRows = statement.executeUpdate();
+            System.out.println("I just inserted " + insertedRows + " users");
 
             // jdbc update
             PreparedStatement updateStatement = connection.prepareStatement("update users set first_name = 'unknown' where id = ?");
             updateStatement.setInt(1, 1);
-            updateStatement.executeUpdate();
+            int updatedRows = updateStatement.executeUpdate();
+            System.out.println("I just updated " + updatedRows + " users");
 
             connection.commit(); // commits the database transaction
 
