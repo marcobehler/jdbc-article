@@ -6,7 +6,7 @@ import java.util.List;
 
 public class JdbcQueries {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         try (Connection conn = DriverManager
                 .getConnection("jdbc:mysql://localhost/test?serverTimezone=UTC",
                         "myUsername", "myPassword")) {
@@ -25,8 +25,6 @@ public class JdbcQueries {
                 users.add(user);
             }
 
-        } catch (SQLException e) {
-            e.printStackTrace();
         }
     }
 }
