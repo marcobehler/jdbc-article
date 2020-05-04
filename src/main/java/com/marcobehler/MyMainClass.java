@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class MyMainClass {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         try (Connection conn = DriverManager
                 .getConnection("jdbc:mysql://localhost/test?serverTimezone=UTC",
                         "myUsername", "myPassword")) {
@@ -16,8 +16,6 @@ public class MyMainClass {
             System.out.println("Do we have a valid db connection? = " + isValid);
 
             // Do something with the Connection, run some SQL statements
-        } catch (SQLException e) {
-            e.printStackTrace();
         }
     }
 }

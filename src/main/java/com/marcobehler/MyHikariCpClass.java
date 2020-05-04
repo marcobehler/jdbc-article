@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 public class MyHikariCpClass {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         DataSource dataSource = createDataSource();
 
         try (Connection conn = dataSource.getConnection()) {
@@ -18,8 +18,6 @@ public class MyHikariCpClass {
             System.out.println("Do we have a valid db connection? = " + isValid);
 
             // Do something with the Connection, run some SQL statements
-        } catch (SQLException e) {
-            e.printStackTrace();
         }
     }
 
