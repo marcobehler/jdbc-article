@@ -44,6 +44,12 @@ public class QueriesClass {
             int updatedRows = updateStatement.executeUpdate();
             System.out.println("I just updated " + updatedRows + " users");
 
+            // jdbc delete
+            PreparedStatement deleteStatement = connection.prepareStatement("delete from users where id > ?");
+            deleteStatement.setInt(1, 1);
+            int deletedRows = deleteStatement.executeUpdate();
+            System.out.println("I just deleted " + deletedRows + " users");
+
             connection.commit(); // commits the database transaction
 
         } catch (SQLException e) {
